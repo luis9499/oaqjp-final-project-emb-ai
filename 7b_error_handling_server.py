@@ -8,27 +8,18 @@ from EmotionDetection.emotion_detection import emotion_detector
 
 app = Flask(__name__)
 
-@app.route('/emotion_detector', methods=['POST'])
+@app.route('/emotionDetector', methods=['GET'])
 def detect_emotion():
     """
     API endpoint for emotion detection with blank input error handling.
-
-    Expects JSON input with 'text' field.
+    
+    Query parameter: text - The text to analyze
     Returns emotion scores and dominant emotion.
     Returns 400 status if text is empty or invalid.
     """
 
-    # Get JSON data from request
-    data = request.get_json()
-
-    # ERROR HANDLING: Validate input - Check for missing data
-    if not data or 'text' not in data:
-        return jsonify({
-            'error': 'Invalid input. Please provide text field.'
-        }), 400
-
-    # ERROR HANDLING: Get text and strip whitespace
-    text = data.get('text', '').strip()
+    # ERROR HANDLING: Get text from query parameters
+    text = request.args.get('text', '').strip()
 
     # ERROR HANDLING: Check for empty or blank input - Returns 400
     if not text:

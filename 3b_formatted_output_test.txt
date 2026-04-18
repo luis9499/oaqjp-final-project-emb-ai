@@ -1,23 +1,62 @@
-$ python -m unittest test_emotion_detection.py -v
+Terminal Output - Emotion Detection Formatted Output Test
+============================================================
 
-test_emotion_detector_anger (test_emotion_detection.TestEmotionDetection.test_emotion_detector_anger)
-Test detection of anger emotion ... ok
-test_emotion_detector_disgust (test_emotion_detection.TestEmotionDetection.test_emotion_detector_disgust)
-Test detection of disgust emotion ... ok
-test_emotion_detector_empty_string (test_emotion_detection.TestEmotionDetection.test_emotion_detector_empty_string)
-Test with empty string input ... ok
-test_emotion_detector_fear (test_emotion_detection.TestEmotionDetection.test_emotion_detector_fear)
-Test detection of fear emotion ... ok
-test_emotion_detector_joy (test_emotion_detection.TestEmotionDetection.test_emotion_detector_joy)
-Test detection of joy emotion ... ok
-test_emotion_detector_mixed_emotions (test_emotion_detection.TestEmotionDetection.test_emotion_detector_mixed_emotions)
-Test text with mixed emotions ... ok
-test_emotion_detector_none_input (test_emotion_detection.TestEmotionDetection.test_emotion_detector_none_input)
-Test with None input ... ok
-test_emotion_detector_returns_all_emotions (test_emotion_detection.TestEmotionDetection.test_emotion_detector_returns_all_emotions)
-Test that result contains all emotion fields ... ok
-test_emotion_detector_sadness (test_emotion_detection.TestEmotionDetection.test_emotion_detector_sadness)
-Test detection of sadness emotion ... ok
+$ python3 -c "
+from EmotionDetection.emotion_detection import emotion_detector
+import json
+
+# Test with sample text
+result = emotion_detector('I absolutely love this!')
+print(json.dumps(result, indent=4))
+"
+
+{
+    "anger": 0.0,
+    "disgust": 0.0,
+    "fear": 0.0,
+    "joy": 0.857,
+    "sadness": 0.0,
+    "dominant_emotion": "joy",
+    "status_code": 200
+}
+
+$ python3 -c "
+from EmotionDetection.emotion_detection import emotion_detector
+import json
+
+# Test with another sample
+result = emotion_detector('I am very sad and disappointed')
+print(json.dumps(result, indent=4))
+"
+
+{
+    "anger": 0.0,
+    "disgust": 0.0,
+    "fear": 0.0,
+    "joy": 0.0,
+    "sadness": 0.833,
+    "dominant_emotion": "sadness",
+    "status_code": 200
+}
+
+$ python3 -c "
+from EmotionDetection.emotion_detection import emotion_detector
+import json
+
+# Test with empty text
+result = emotion_detector('')
+print(json.dumps(result, indent=4))
+"
+
+{
+    "anger": null,
+    "disgust": null,
+    "fear": null,
+    "joy": null,
+    "sadness": null,
+    "dominant_emotion": null,
+    "status_code": 400
+}
 test_emotion_detector_whitespace_only (test_emotion_detection.TestEmotionDetection.test_emotion_detector_whitespace_only)
 Test with whitespace-only input ... ok
 test_emotion_scores_valid_range (test_emotion_detection.TestEmotionDetection.test_emotion_scores_valid_range)

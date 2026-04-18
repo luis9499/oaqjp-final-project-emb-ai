@@ -32,34 +32,26 @@ def emotion_detector(text_to_analyze):
         }
 
     # Watson NLP API endpoint
-    url = "https://api.us-south.nlu.watson.cloud.ibm.com/analyze"
+    url = "https://sn-watson-emotion.labs.skills.network/v1/watson.runtime.nlp.v1/NlpService/EmotionPredict"
     headers = {
         "Content-Type": "application/json"
     }
-
-    # API Key - should be in environment variables in production
-    api_key = "your_watson_api_key_here"
-    auth = ("apikey", api_key)
 
     # Request payload for Watson NLP
     data = {
         "raw_document": {
             "content": text_to_analyze
-        },
-        "features": {
-            "emotion": {}
         }
     }
 
     try:
         # Make the API call to Watson NLP
-        response = requests.post(url, json=data, headers=headers,
-                               auth=auth, timeout=10)
+        response = requests.post(url, json=data, headers=headers, timeout=10)
 
         # If successful response from Watson
         if response.status_code == 200:
             response_data = response.json()
-            emotion = response_data.get("emotion", {}).get("document", {}).get("emotion", {})
+            emotion = response_data.get("emotionPredict", [{}])[0].get("emotion", {})
 
             # Find the dominant emotion
             if emotion:

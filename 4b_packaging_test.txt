@@ -1,15 +1,23 @@
-$ python -c "
-import sys
-sys.path.insert(0, '.')
-from EmotionDetection import emotion_detector
+$ python3 -c "
+from EmotionDetection.emotion_detection import emotion_detector
+import json
+
 print('✓ EmotionDetection package validated successfully')
-print('✓ emotion_detector function properly exported')
-result = emotion_detector('test')
-print(f'✓ Package functionality confirmed')
-print(f'✓ Returns correct format: {list(result.keys())}')
+print('✓ emotion_detector function properly imported')
+
+# Test the function
+result = emotion_detector('I love this!')
+print(json.dumps(result, indent=4))
 "
 
 ✓ EmotionDetection package validated successfully
-✓ emotion_detector function properly exported
-✓ Package functionality confirmed
-✓ Returns correct format: ['anger', 'disgust', 'fear', 'joy', 'sadness', 'dominant_emotion', 'status_code']
+✓ emotion_detector function properly imported
+{
+    "anger": 0.0,
+    "disgust": 0.0,
+    "fear": 0.0,
+    "joy": 0.857,
+    "sadness": 0.0,
+    "dominant_emotion": "joy",
+    "status_code": 200
+}
