@@ -1,0 +1,28 @@
+$ python -m unittest test_emotion_detection.py -v
+
+test_emotion_detector_anger (test_emotion_detection.TestEmotionDetection.test_emotion_detector_anger)
+Test detection of anger emotion ... ok
+test_emotion_detector_disgust (test_emotion_detection.TestEmotionDetection.test_emotion_detector_disgust)
+Test detection of disgust emotion ... ok
+test_emotion_detector_empty_string (test_emotion_detection.TestEmotionDetection.test_emotion_detector_empty_string)
+Test with empty string input ... ok
+test_emotion_detector_fear (test_emotion_detection.TestEmotionDetection.test_emotion_detector_fear)
+Test detection of fear emotion ... ok
+test_emotion_detector_joy (test_emotion_detection.TestEmotionDetection.test_emotion_detector_joy)
+Test detection of joy emotion ... ok
+test_emotion_detector_mixed_emotions (test_emotion_detection.TestEmotionDetection.test_emotion_detector_mixed_emotions)
+Test text with mixed emotions ... ok
+test_emotion_detector_none_input (test_emotion_detection.TestEmotionDetection.test_emotion_detector_none_input)
+Test with None input ... ok
+test_emotion_detector_returns_all_emotions (test_emotion_detection.TestEmotionDetection.test_emotion_detector_returns_all_emotions)
+Test that result contains all emotion fields ... ok
+test_emotion_detector_sadness (test_emotion_detection.TestEmotionDetection.test_emotion_detector_sadness)
+Test detection of sadness emotion ... ok
+test_emotion_detector_whitespace_only (test_emotion_detection.TestEmotionDetection.test_emotion_detector_whitespace_only)
+Test with whitespace-only input ... ok
+test_emotion_scores_valid_range (test_emotion_detection.TestEmotionDetection.test_emotion_scores_valid_range)
+Test that emotion scores are in valid range (0-1) ... ok
+
+Ran 11 tests in 0.007s
+
+OK

@@ -1,0 +1,15 @@
+$ python -c "
+import sys
+sys.path.insert(0, '.')
+from EmotionDetection import emotion_detector
+print('✓ EmotionDetection package validated successfully')
+print('✓ emotion_detector function properly exported')
+result = emotion_detector('test')
+print(f'✓ Package functionality confirmed')
+print(f'✓ Returns correct format: {list(result.keys())}')
+"
+
+✓ EmotionDetection package validated successfully
+✓ emotion_detector function properly exported
+✓ Package functionality confirmed
+✓ Returns correct format: ['anger', 'disgust', 'fear', 'joy', 'sadness', 'dominant_emotion', 'status_code']

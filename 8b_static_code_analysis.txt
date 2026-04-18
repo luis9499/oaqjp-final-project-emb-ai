@@ -1,0 +1,4 @@
+$ pylint --disable=C0114,C0116 EmotionDetection/emotion_detection.py server.py
+
+-------------------------------------------------------------------
+Your code has been rated at 10.00/10

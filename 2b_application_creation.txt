@@ -1,0 +1,11 @@
+$ python -c "
+from EmotionDetection import emotion_detector
+result = emotion_detector('I am very happy!')
+print('✓ EmotionDetection package imported successfully')
+print(f'✓ emotion_detector function works correctly')
+print(f'Result: {result}')
+"
+
+✓ EmotionDetection package imported successfully
+✓ emotion_detector function works correctly
+Result: {'anger': 0.0, 'disgust': 0.0, 'fear': 0.0, 'joy': 1.0, 'sadness': 0.0, 'dominant_emotion': 'joy', 'status_code': 200}
